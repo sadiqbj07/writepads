@@ -1,0 +1,112 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="WritePad mobile text editor">
+  <title>WritePad Mobile</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">W</div>
+      <div>
+        <h1>WritePad</h1>
+        <small>Mobile Text Editor</small>
+      </div>
+    </div>
+    <div class="header-buttons">
+      <button id="installBtn" hidden>Install App</button>
+      <button id="themeBtn" class="icon-btn" aria-label="Toggle dark mode">☾</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="workspace">
+      <div class="document-info">
+        <label for="docTitle">File name</label>
+        <input id="docTitle" value="Untitled" maxlength="100">
+        <span id="saveStatus" role="status">Ready</span>
+      </div>
+
+      <nav class="toolbar" aria-label="File actions">
+        <button id="newBtn">＋ New</button>
+        <button id="openBtn">📂 Open</button>
+        <button id="saveBtn" class="primary">💾 Save</button>
+        <button id="saveAsBtn">Save As</button>
+        <button id="exportBtn">Export TXT</button>
+        <input id="fileInput" type="file"
+          accept=".txt,.md,.html,.htm,.json,.csv,.log,.css,.js,text/*" hidden>
+      </nav>
+
+      <div class="toolbar formatting">
+        <label>Font
+          <select id="fontFamily">
+            <option value="Arial">Arial</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Verdana">Verdana</option>
+            <option value="system-ui">System</option>
+          </select>
+        </label>
+
+        <label>Size
+          <select id="fontSize">
+            <option value="2">Small</option>
+            <option value="3" selected>Normal</option>
+            <option value="4">Large</option>
+            <option value="5">Extra large</option>
+            <option value="6">Huge</option>
+          </select>
+        </label>
+
+        <button data-command="bold" title="Bold"><b>B</b></button>
+        <button data-command="italic" title="Italic"><i>I</i></button>
+        <button data-command="underline" title="Underline"><u>U</u></button>
+        <button data-command="insertUnorderedList">• List</button>
+        <button data-command="insertOrderedList">1. List</button>
+        <button id="clearFormatBtn">Clear Format</button>
+      </div>
+
+      <div id="editor" class="editor"
+        contenteditable="true" role="textbox" aria-multiline="true"
+        aria-label="WritePad document"
+        data-placeholder="Start writing here..."></div>
+
+      <footer class="statusbar">
+        <span id="wordCount">0 words</span>
+        <span id="charCount">0 characters</span>
+        <span id="lineCount">1 line</span>
+        <span id="offlineStatus">Offline status unknown</span>
+      </footer>
+      <p class="hint">
+        Save stores a browser copy. Save As downloads formatted HTML.
+        Export TXT downloads plain text.
+      </p>
+    </section>
+
+    <aside class="sidebar">
+      <div class="sidebar-heading">
+        <div>
+          <h2>Recent Documents</h2>
+          <small>Saved in this browser</small>
+        </div>
+        <button id="clearRecentBtn">Clear List</button>
+      </div>
+      <div id="recentList"></div>
+      <p class="hint">
+        Recent documents are local to this browser.
+        Download important work for a separate backup.
+      </p>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
