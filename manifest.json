@@ -1,6 +1,5 @@
-
 {
-  "id": "./",
+  "id": "./writepads ",
   "name": "WritePad Mobile",
   "short_name": "WritePad",
   "description": "A simple, modern writing and note-taking app.",
@@ -8,7 +7,7 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#0B1020",
+  "background_color": "#ffffff",
   "theme_color": "#1769FF",
   "icons": [
     {
@@ -29,5 +28,13 @@
       "type": "image/png",
       "purpose": "maskable"
     }
+  ],
+  "dir": "auto",
+  "lang": "en",
+  "display_override": [
+    "fullscreen",
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
   ]
 }
